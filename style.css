@@ -1,0 +1,52 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+  Arial, sans-serif;
+  font-size: 150%;
+  color: white;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("images/space_bg.jpg");
+  background-size: cover;
+}
+
+h1 {
+  color: lightblue;
+  margin: 25px 0px;
+}
+
+h3 {
+  font-size: 90%;
+}
+
+h5 {
+  color: lightblue;
+}
+
+.upper-ui {
+  margin-top: 50px;
+}
+
+.column-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.column-left {
+  margin-right: 40px;
+}
+
+.column-right {
+  margin-left: 40px;
+}
+
+.number {
+  color: goldenrod;
+}
+
+#score-el {
+  color: goldenrod;
+  font-size: 40px;
+  margin-top: 20px;
+}
