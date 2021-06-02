@@ -23,6 +23,25 @@ h5 {
   color: lightblue;
 }
 
+button {
+  color: black;
+  background: goldenrod;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 12px;
+  margin: 0px 4px;
+  border-radius: 2px;
+}
+
+button:hover {
+  background: gold;
+}
+
+button:active {
+  background: yellow;
+}
+
 .upper-ui {
   margin-top: 50px;
 }
