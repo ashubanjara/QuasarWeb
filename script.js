@@ -1,9 +1,11 @@
-// Game Variables
-let currentNumber = 0;
-let nums = [];
-let payout = 0;
-let credits = 0;
-let isAlive = false;
+// Game Stats object
+let gameStats = {
+  currentNumber: 0,
+  nums: [],
+  payout: 0,
+  credits: 0,
+  isAlive: false,
+}
 
 // DOM Variables
 const numbersEl = document.getElementById("prev-nums-el");
@@ -11,16 +13,13 @@ const scoreEl = document.getElementById("score-el");
 const payoutEl = document.getElementById("payout-el");
 const creditsEl = document.getElementById("credits-el");
 
-// For testing
-let num1 = 10;
-let num2 = 12;
 
 function startGame(){
-  if (!isAlive){
-    isAlive = true;
+  if (!gameStats.isAlive){
+    gameStats.isAlive = true;
     let num = getRandomNum(1, 8);
-    nums.push(num);
-    currentNumber += num;
+    gameStats.nums.push(num);
+    gameStats.currentNumber += num;
     renderGame();
   }
 }
@@ -28,15 +27,15 @@ function startGame(){
 function renderGame(){
   // Prev numbers Display
   let nums_str = ""
-  for (let i = 0; i < nums.length; i++){
-    nums_str += " " + nums[i];
+  for (let i = 0; i < gameStats.nums.length; i++){
+    nums_str += " " + gameStats.nums[i];
   }
   numbersEl.textContent = nums_str;
 
   // Other displays
-  scoreEl.textContent = currentNumber;
-  payoutEl.textContent = payout;
-  creditsEl.textContent = credits;
+  scoreEl.textContent = gameStats.currentNumber;
+  payoutEl.textContent = gameStats.payout;
+  creditsEl.textContent = gameStats.credits;
 }
 
 // Returns a random  number between start and stop
@@ -45,20 +44,22 @@ function getRandomNum(start, stop){
   return randomNum;
 }
 
+// 4-7 button
 function pickFourToSeven(){
-  if (isAlive){
+  if (gameStats.isAlive){
     let num = getRandomNum(4, 7);
-    nums.push(num);
-    currentNumber += num;
+    gameStats.nums.push(num);
+    gameStats.currentNumber += num;
     renderGame();
   }
 }
 
+// 1-8 button
   function pickOneToEight(){
-    if (isAlive){
+    if (gameStats.isAlive){
       let num = getRandomNum(1, 8);
-      nums.push(num);
-      currentNumber += num;
+      gameStats.nums.push(num);
+      gameStats.currentNumber += num;
       renderGame();
     }
   }
