@@ -69,3 +69,16 @@ button:active {
   font-size: 40px;
   margin-top: 20px;
 }
+
+#hidden {
+  opacity: 0;
+}
+
+#payout {
+  color: black;
+  background: goldenrod;
+  border: none;
+  padding: 8px 28.5px;
+  margin: 0px 4px;
+  border-radius: 2px;
+}

@@ -13,6 +13,7 @@ const scoreEl = document.getElementById("score-el");
 const payoutEl = document.getElementById("payout-el");
 const creditsEl = document.getElementById("credits-el");
 
+const btnGroup = document.getElementById("btn-group");
 
 function startGame(){
   if (!gameStats.isAlive){
@@ -20,6 +21,19 @@ function startGame(){
     let num = getRandomNum(1, 8);
     gameStats.nums.push(num);
     gameStats.currentNumber += num;
+
+    // hide start game button;
+    btnGroup.innerHTML = `<button id="4-7-btn" onclick="pickFourToSeven()">
+      PICK 4-7
+    </button>
+    <button id="hidden">
+      START GAME
+    </button>
+    <button id="1-8-btn" onclick="pickOneToEight()">
+      PICK 1-8
+    </button>`;
+
+    determinePayout();
     renderGame();
   }
 }
@@ -50,6 +64,7 @@ function pickFourToSeven(){
     let num = getRandomNum(4, 7);
     gameStats.nums.push(num);
     gameStats.currentNumber += num;
+    determinePayout();
     renderGame();
   }
 }
@@ -60,6 +75,68 @@ function pickFourToSeven(){
       let num = getRandomNum(1, 8);
       gameStats.nums.push(num);
       gameStats.currentNumber += num;
+      determinePayout();
       renderGame();
     }
+  }
+
+  // Determine the payout for given score
+  function determinePayout(){
+    let num = gameStats.currentNumber;
+    if (num === 15){
+      gameStats.payout = 50;
+    }
+    else if (num === 16){
+      gameStats.payout = 100;
+    }
+    else if (num === 17){
+      gameStats.payout = 200;
+    }
+    else if (num === 18){
+      gameStats.payout = 250;
+    }
+    else if (num === 19){
+      gameStats.payout = 300;
+    }
+    else if (num === 20){
+      gameStats.payout = 400;
+    }
+    else {
+      gameStats.payout = 0;
+    }
+
+    if (num > 14 && num < 21){
+      // Show get payout button
+      btnGroup.innerHTML = `<button id="4-7-btn" onclick="pickFourToSeven()">
+        PICK 4-7
+      </button>
+      <button id="payout" onclick="getPayout()">
+        PAY OUT
+      </button>
+      <button id="1-8-btn" onclick="pickOneToEight()">
+        PICK 1-8
+      </button>`;
+    }
+  }
+
+  function getPayout(){
+    gameStats.credits = gameStats.payout;
+    gameStats.currentNumber = 0;
+    gameStats.nums = [];
+    gameStats.payout = 0;
+    gameStats.isAlive = false;
+
+    btnGroup.innerHTML = `<div class="button-group" id="btn-group">
+      <button id="4-7-btn" onclick="pickFourToSeven()">
+        PICK 4-7
+      </button>
+      <button id="start-btn" onclick="startGame()">
+        START GAME
+      </button>
+      <button id="1-8-btn" onclick="pickOneToEight()">
+        PICK 1-8
+      </button>
+    </div>`
+
+    renderGame();
   }
