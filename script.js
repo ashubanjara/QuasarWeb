@@ -3,7 +3,7 @@ let gameStats = {
   currentNumber: 0,
   nums: [],
   payout: 0,
-  credits: 200,
+  credits: 10000,
   isAlive: false,
 }
 
@@ -14,6 +14,12 @@ const payoutEl = document.getElementById("payout-el");
 const creditsEl = document.getElementById("credits-el");
 
 const btnGroup = document.getElementById("btn-group");
+
+// Check if there is any saved player data and render it
+if (localStorage.getItem("playerStats")){
+  gameStats = JSON.parse(localStorage.getItem("playerStats"));
+}
+renderGame();
 
 function startGame(){
   if (!gameStats.isAlive){
@@ -148,4 +154,9 @@ function pickNum(start, stop){
     </div>`
 
     renderGame();
+    saveGameState();
+  }
+
+  function saveGameState(){
+    localStorage.setItem("playerStats", JSON.stringify(gameStats));
   }
