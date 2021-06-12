@@ -16,6 +16,8 @@ const creditsEl = document.getElementById("credits-el");
 const btnGroup = document.getElementById("btn-group");
 const startBtn = document.getElementById("start-btn");
 
+const helpModal = document.getElementById("help-modal");
+
 // Check if there is any saved player data and render it
 if (localStorage.getItem("playerStats")){
   gameStats = JSON.parse(localStorage.getItem("playerStats"));
@@ -160,4 +162,8 @@ function pickNum(start, stop){
 
   function saveGameState(){
     localStorage.setItem("playerStats", JSON.stringify(gameStats));
+  }
+
+  function closeModal(){
+    helpModal.style.display = "none";
   }
