@@ -18,6 +18,13 @@ const startBtn = document.getElementById("start-btn");
 
 const helpModal = document.getElementById("help-modal");
 
+if (localStorage.getItem("visited")){
+  helpModal.style.display = "none";
+}
+else {
+  localStorage.setItem("visited", 0);
+}
+
 // Check if there is any saved player data and render it
 if (localStorage.getItem("playerStats")){
   gameStats = JSON.parse(localStorage.getItem("playerStats"));
