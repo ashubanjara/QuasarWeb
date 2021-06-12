@@ -136,4 +136,5 @@ button:active {
   text-align: center;
   background: rgba(0,0,0,0.9);
   padding: 25px 0px;
+  border-radius: 20px;
 }
