@@ -15,11 +15,25 @@ h1 {
   margin: 25px 0px;
 }
 
-h3 {
+h3, ul {
+  font-size: 80%;
+}
+
+p {
   font-size: 90%;
+  color: lightblue;
 }
 
 h5 {
+  color: lightblue;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
   color: lightblue;
 }
 
@@ -64,6 +78,14 @@ button:active {
   color: goldenrod;
 }
 
+.gold-accent {
+  color: goldenrod;
+}
+
+.red-accent {
+  color: crimson;
+}
+
 #score-el {
   color: goldenrod;
   font-size: 40px;
@@ -81,4 +103,13 @@ button:active {
   padding: 8px 28.5px;
   margin: 0px 4px;
   border-radius: 2px;
+}
+
+#four-seven-btn,
+#one-eight-btn {
+  display: none;
+}
+
+#help-modal {
+  font-weight: bold;
 }

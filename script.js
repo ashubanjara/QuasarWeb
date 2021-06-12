@@ -14,6 +14,7 @@ const payoutEl = document.getElementById("payout-el");
 const creditsEl = document.getElementById("credits-el");
 
 const btnGroup = document.getElementById("btn-group");
+const startBtn = document.getElementById("start-btn");
 
 // Check if there is any saved player data and render it
 if (localStorage.getItem("playerStats")){
