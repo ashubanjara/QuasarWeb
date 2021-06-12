@@ -167,3 +167,7 @@ function pickNum(start, stop){
   function closeModal(){
     helpModal.style.display = "none";
   }
+
+  function showModal(){
+    helpModal.style.display = "block";
+  }
