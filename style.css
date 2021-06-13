@@ -137,6 +137,7 @@ button:active {
   background: rgba(0,0,0,0.8);
   padding: 25px 0px;
   border-radius: 20px;
+  animation: fade 0.5s;
 }
 
 @media screen and (max-width: 768px) {
@@ -179,5 +180,14 @@ button:active {
     }
     #help-modal {
       width: 97%;
+    }
+}
+
+@keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
 }
