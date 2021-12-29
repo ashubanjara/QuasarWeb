@@ -1,4 +1,4 @@
-A web-app game inspired by the mini-game "Quasar" in Mass Effect, very similar to the card game Blackjack.
+A web-app game inspired by the mini-game "Quasar", very similar to the card game Blackjack.
 
 Made from scratch with vanilla HTML/CSS/JS
 
